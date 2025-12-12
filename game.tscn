@@ -21,10 +21,10 @@ position = Vector2(864, 736)
 position = Vector2(1408, 32)
 
 [node name="StaticBody2D3" parent="." instance=ExtResource("2_feb5d")]
-position = Vector2(-1280, 64)
+position = Vector2(-736, -928)
 
 [node name="StaticBody2D4" parent="." instance=ExtResource("2_feb5d")]
-position = Vector2(-896, 736)
+position = Vector2(-1408, -96)
 
 [node name="Circuit" parent="." instance=ExtResource("4_fc0e3")]
 position = Vector2(0, 32)
