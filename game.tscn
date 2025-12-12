@@ -1,13 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://3gicpphw4ki0"]
+[gd_scene load_steps=5 format=3 uid="uid://3gicpphw4ki0"]
 
 [ext_resource type="PackedScene" uid="uid://p75euy1gcr34" path="res://lessons/runner.tscn" id="1_e2o6t"]
+[ext_resource type="Texture2D" uid="uid://5vl7p0xb7nd8" path="res://assets/circuit_background.png" id="1_feb5d"]
 [ext_resource type="PackedScene" uid="uid://bqyt66qognb6h" path="res://lessons/simple_obstacle.tscn" id="2_feb5d"]
+[ext_resource type="PackedScene" uid="uid://c6m5ktrjrtgba" path="res://circuit.tscn" id="4_fc0e3"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 
-[node name="Runner" parent="." instance=ExtResource("1_e2o6t")]
-position = Vector2(693, 471)
+[node name="CircuitBackground" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("1_feb5d")
 
-[node name="SimpleObstacle" parent="." instance=ExtResource("2_feb5d")]
-position = Vector2(690, 434)
+[node name="Runner" parent="." instance=ExtResource("1_e2o6t")]
+
+[node name="StaticBody2D" parent="." instance=ExtResource("2_feb5d")]
+position = Vector2(864, 736)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("2_feb5d")]
+position = Vector2(1408, 32)
+
+[node name="StaticBody2D3" parent="." instance=ExtResource("2_feb5d")]
+position = Vector2(-1280, 64)
+
+[node name="StaticBody2D4" parent="." instance=ExtResource("2_feb5d")]
+position = Vector2(-896, 736)
+
+[node name="Circuit" parent="." instance=ExtResource("4_fc0e3")]
+position = Vector2(0, 32)
