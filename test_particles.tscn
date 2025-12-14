@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://dybbswvidqsye"]
+
+[ext_resource type="Texture2D" uid="uid://tgs14f485wph" path="res://assets/kenney-particles/smoke_04.png" id="1_btvwu"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_btvwu"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_67827"]
+_data = [Vector2(0, 0.7415731), 0.0, 1.8824546, 0, 0, Vector2(1, 0), -2.7586513, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_aetp2"]
+curve = SubResource("Curve_67827")
+
+[sub_resource type="Gradient" id="Gradient_btvwu"]
+offsets = PackedFloat32Array(0, 0.7383721)
+colors = PackedColorArray(0.67578125, 0.4432123, 0.0448761, 1, 0.64453125, 0.075531006, 0.075531006, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_67827"]
+gradient = SubResource("Gradient_btvwu")
+
+[sub_resource type="Curve" id="Curve_btvwu"]
+_data = [Vector2(0.00505051, 0.022471905), 0.0, 0.0, 0, 0, Vector2(0.26767677, 1), 0.0, 0.0, 0, 0, Vector2(0.81313133, 0.10112369), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_67827"]
+curve = SubResource("Curve_btvwu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_67827"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 10.0
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 50.0
+initial_velocity_max = 70.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.19999999
+scale_max = 0.19999999
+scale_curve = SubResource("CurveTexture_67827")
+color_ramp = SubResource("GradientTexture1D_67827")
+alpha_curve = SubResource("CurveTexture_aetp2")
+
+[node name="TestParticles" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_btvwu")
+amount = 30
+texture = ExtResource("1_btvwu")
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_67827")
