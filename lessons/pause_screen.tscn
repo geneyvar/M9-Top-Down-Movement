@@ -1,0 +1,93 @@
+[gd_scene load_steps=8 format=3 uid="uid://dj6ye05dbiqpi"]
+
+[ext_resource type="FontFile" uid="uid://vxbfcnef0pvq" path="res://assets/fonts/rubik/Rubik-Bold.ttf" id="1_6f8pp"]
+[ext_resource type="Script" uid="uid://cxm3a8sarcd27" path="res://lessons/pause_screen.gd" id="2_qb0gi"]
+[ext_resource type="Shader" uid="uid://dp1hn66gsihpv" path="res://assets/blur.gdshader" id="2_vtnhc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hve3p"]
+bg_color = Color(0.04296875, 0.005874634, 0.005874634, 1)
+expand_margin_left = 20.0
+expand_margin_right = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vef74"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.07450981, 0.11372549, 0.14901961, 0.38431373)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="Theme" id="Theme_mfdv2"]
+default_font = ExtResource("1_6f8pp")
+default_font_size = 42
+Button/styles/normal = SubResource("StyleBoxFlat_hve3p")
+Label/font_sizes/font_size = 64
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_vef74")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vef74"]
+shader = ExtResource("2_vtnhc")
+shader_parameter/blur_amount = 5.30000025175
+shader_parameter/tint = Color(0, 0, 0, 1)
+shader_parameter/tint_strength = 0.0
+shader_parameter/saturation = 1.0
+
+[node name="PauseScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_mfdv2")
+script = ExtResource("2_qb0gi")
+menu_opened_amount = 1.0
+metadata/_edit_use_anchors_ = true
+
+[node name="BlurColorRect" type="ColorRect" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_vef74")
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1088.0
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 759.0
+offset_top = 384.0
+offset_right = 1120.0
+offset_bottom = 736.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+text = "PAUSE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="PanelContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Resume"
+
+[node name="QuitButton" type="Button" parent="PanelContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit"
