@@ -21,6 +21,7 @@ metadata/_edit_lock_ = true
 
 [node name="FinishLine" parent="." instance=ExtResource("3_7jktm")]
 unique_name_in_owner = true
+process_mode = 3
 position = Vector2(576, 1216)
 area_width = 256
 

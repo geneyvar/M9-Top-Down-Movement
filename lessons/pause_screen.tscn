@@ -35,7 +35,7 @@ shader_parameter/tint_strength = 0.0
 shader_parameter/saturation = 1.0
 
 [node name="PauseScreen" type="Control"]
-process_mode = 1
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
