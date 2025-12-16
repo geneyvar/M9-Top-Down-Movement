@@ -31,3 +31,4 @@ func _ready() -> void:
 		func() -> void:
 			_runner.set_physics_process(true)
 	)
+	

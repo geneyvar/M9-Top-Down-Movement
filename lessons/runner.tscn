@@ -38,8 +38,6 @@ viewport_path = NodePath("SubViewport")
 [node name="Runner" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_h1hi2")
-max_speed = 300.0
-acceleration = 1000.0
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.15686275)
